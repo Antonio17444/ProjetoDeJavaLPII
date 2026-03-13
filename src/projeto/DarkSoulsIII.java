@@ -1,0 +1,16 @@
+package projeto;
+
+public class DarkSoulsIII extends Jogo {
+	DarkSoulsIII(){
+		super("Dark Souls", "Soulslike", 229.0f, 25.0f, 2016, "FromSoftware", 4);
+	}
+	
+	@Override
+	public String exibirInfo() {
+		return "DARK SOULS™ continua a ultrapassar seus próprios"
+				+ "limites em um ambicioso novo capítulo da série que"
+				+ "definiu um gênero e que é aclamada pela crítica."
+				+ "Prepare-se para abraçar a escuridão!";
+	}
+	
+}
