@@ -1,4 +1,4 @@
-package projeto;
+package projeto.jogos;
 
 public abstract class Jogo {
 	
@@ -19,9 +19,11 @@ public abstract class Jogo {
 		this.publisher = publisher;
 		this.id = id;
 	}
-	
-	Jogo(){}
-	
+
+	public int getId() {
+		return id;
+	}
+
 	@Override
 	public String toString() {
 		return "========================\n"+
@@ -35,5 +37,5 @@ public abstract class Jogo {
 	}
 	
 	public abstract String exibirInfo();
-	
+
 }

@@ -1,8 +1,8 @@
-package projeto;
+package projeto.jogos;
 
 public class GrandTheftAutoVI extends Jogo {
-	GrandTheftAutoVI(){
-		super("Grand Theft Auto VI", "Open-Word", 999.0f, 210.0f, 2026, "Rockstar Games", 2);
+	public GrandTheftAutoVI(){
+		super("Grand Theft Auto VI", "Open-Word", 999.0f, 210.0f, 2026, "Rockstar Games", 4);
 	}
 	
 	@Override

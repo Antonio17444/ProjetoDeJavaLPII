@@ -1,10 +1,10 @@
-package projeto;
+package projeto.jogos;
 
 public class Cyberpunk extends Jogo{
-	Cyberpunk(){
-		super("Cyberpunk", "Open-Word", 199.0f, 70.0f, 2026, "CD Projekt RED", 3);
+	public Cyberpunk(){
+		super("Cyberpunk", "Open-Word", 199.0f, 70.0f, 2026, "CD Projekt RED", 0);
 	}
-	
+
 	@Override
 	public String exibirInfo() {
 		return "Cyberpunk 2077 é um RPG de ação e aventura em "

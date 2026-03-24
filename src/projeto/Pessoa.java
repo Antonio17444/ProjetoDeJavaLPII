@@ -1,22 +1,22 @@
 package projeto;
 
+import projeto.jogos.Jogo;
+
+import java.util.Scanner;
+
 public class Pessoa {
-	private String nome;
-	private int idade;
-	private double dinheiro;
-	
-	Pessoa(String nome, int idade, double dinheiro){
-		this.nome = nome;
-		this.idade = idade;
-		this.dinheiro = dinheiro;
+
+	private String nomeUsuario;
+	private int idSteam;
+	private Jogo[] jogosUsuario = new Jogo[10];
+
+	public void preencherDados(Scanner sc, Scanner scInt){
+
+		System.out.println("Insira o nome do usuario: ");
+		nomeUsuario = sc.nextLine();
+
+		System.out.println("Insira o idSteam: ");
+		idSteam = scInt.nextInt();
+
 	}
-	
-	public double exibirSaldo() {
-		return dinheiro;
-	}
-	
-	public void setDinheiro(double dinheiro) {
-		this.dinheiro = dinheiro;
-	}
-	
 }

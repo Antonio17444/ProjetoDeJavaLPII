@@ -1,8 +1,8 @@
-package projeto;
+package projeto.jogos;
 
 public class FalloutNewVegas extends Jogo {
-	FalloutNewVegas(){
-		super("Fallout New Vegas", "RPG", 39.0f, 3.0f, 2010, "Bethesda", 5);
+	public FalloutNewVegas(){
+		super("Fallout New Vegas", "RPG", 39.0f, 3.0f, 2010, "Bethesda", 3);
 	}
 	
 	@Override
