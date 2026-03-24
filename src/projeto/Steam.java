@@ -2,8 +2,11 @@ package projeto;
 
 import projeto.jogos.*;
 
+import java.util.Scanner;
+
 public class Steam {
 
+    private Pessoa pessoa = new Pessoa();
     private Jogo[] jogosDisponiveis = new Jogo[10];
 
     public void adicionaJogosBibliotecas(){
@@ -34,16 +37,90 @@ public class Steam {
 
     public void imprimirGames(){
         for (int i = 0; i < jogosDisponiveis.length; i++ ){
-            System.out.println(jogosDisponiveis[i]);
+            if (jogosDisponiveis[i] != null){
+                System.out.println(jogosDisponiveis[i]);
+            }
         }
     }
 
-    public void compraJogos(Pessoa[] jogosUsuario,int id){
-
-
-
-
+    public void compraJogos(Jogo[] jogosUsuario,int id){
+        jogosUsuario[id] = jogosDisponiveis[id];
+        jogosDisponiveis[id] = null;
     }
 
+    public void removerJogo(Jogo[] jogosUsuario,int id){
+        jogosUsuario[id] = null;
+    }
+
+    public void sistemaCompraVendaBiblioteca(Scanner sc,Scanner scString){
+
+        adicionaJogosBibliotecas();
+
+        System.out.println("Preencha os Dados do usuario");
+        pessoa.preencherDados(scString,sc);
+
+        boolean condition = true;
+        int opcoes;
+
+        do {
+
+            System.out.println("\n============ Menu ============\n");
+            System.out.println("➤ 1 - Listar Jogos");
+            System.out.println("➤ 2 - Listar sua biblioteca de jogos");
+            System.out.println("➤ 3 - Sair do menu e fechar o programa");
+            System.out.println("\n✎ Informe a opção desejada: ");
+
+            opcoes = sc.nextInt();
+
+            switch (opcoes) {
+
+                case 1:
+                    System.out.println("\n=== Lista de Jogos ===");
+
+                    imprimirGames();
+
+                    int subOpcao;
+                    do {
+                        System.out.println("\n============ Menu ============\n");
+                        System.out.println("➤ 1 - Adicionar Jogo Biblioteca");
+                        System.out.println("➤ 2 - Voltar");
+                        System.out.println("\nSelecione a opção desejada: ");
+
+                        subOpcao = sc.nextInt();
+
+                        switch (subOpcao) {
+                            case 1:
+                                System.out.println("Selecione a id do jogo: ");
+                                compraJogos(pessoa.getJogosUsuario(),sc.nextInt());
+                                break;
+
+                            case 2:
+                                System.out.println("Voltando...");
+                                break;
+
+                            default:
+                                System.out.println("Opção inválida.");
+                        }
+
+                    } while (subOpcao != 2);
+
+                    break;
+
+                case 2:
+                    System.out.println("\n=== Sua biblioteca ===");
+                    pessoa.listaJogosUsuario();
+                    break;
+
+                case 3:
+                    System.out.println("Encerrando programa...");
+                    condition = false;
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
+            }
+
+        } while (condition);
+    }
 
 }
