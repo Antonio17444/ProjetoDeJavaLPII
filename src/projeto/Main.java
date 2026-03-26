@@ -8,9 +8,13 @@ public class Main {
 		Scanner scString = new Scanner(System.in);
 		Scanner scInt = new Scanner(System.in);
 
-		Steam steam = new Steam();
+		Pessoa usuario = new Pessoa();
 
-		steam.sistemaCompraVendaBiblioteca(scInt,scString);
+		usuario.preencherDados(scString);
 
+		usuario.getHeroicConta().interfaceGraficaLojaJogos(scInt,usuario);
+
+		scInt.close();
+		scString.close();
 	}
 }

@@ -4,9 +4,8 @@ import projeto.jogos.*;
 
 import java.util.Scanner;
 
-public class Steam {
+public class LojaJogos {
 
-    private Pessoa pessoa = new Pessoa();
     private Jogo[] jogosDisponiveis = new Jogo[10];
 
     public void adicionaJogosBibliotecas(){
@@ -52,12 +51,9 @@ public class Steam {
         jogosUsuario[id] = null;
     }
 
-    public void sistemaCompraVendaBiblioteca(Scanner sc,Scanner scString){
+    public void interfaceGraficaLojaJogos(Scanner sc,Pessoa usuario){
 
         adicionaJogosBibliotecas();
-
-        System.out.println("Preencha os Dados do usuario");
-        pessoa.preencherDados(scString,sc);
 
         boolean condition = true;
         int opcoes;
@@ -83,7 +79,8 @@ public class Steam {
                     do {
                         System.out.println("\n============ Menu ============\n");
                         System.out.println("➤ 1 - Adicionar Jogo Biblioteca");
-                        System.out.println("➤ 2 - Voltar");
+                        System.out.println("➤ 2 - Remover Jogo Biblioteca");
+                        System.out.println("➤ 3 - Voltar");
                         System.out.println("\nSelecione a opção desejada: ");
 
                         subOpcao = sc.nextInt();
@@ -91,10 +88,14 @@ public class Steam {
                         switch (subOpcao) {
                             case 1:
                                 System.out.println("Selecione a id do jogo: ");
-                                compraJogos(pessoa.getJogosUsuario(),sc.nextInt());
+                                compraJogos(usuario.getJogosUsuario(),sc.nextInt());
                                 break;
 
                             case 2:
+                                System.out.println("Selecione a id do jogo: ");
+                                removerJogo(usuario.getJogosUsuario(),sc.nextInt());
+                                break;
+                            case 3:
                                 System.out.println("Voltando...");
                                 break;
 
@@ -102,13 +103,13 @@ public class Steam {
                                 System.out.println("Opção inválida.");
                         }
 
-                    } while (subOpcao != 2);
+                    } while (subOpcao != 3);
 
                     break;
 
                 case 2:
                     System.out.println("\n=== Sua biblioteca ===");
-                    pessoa.listaJogosUsuario();
+                    usuario.listaJogosUsuario();
                     break;
 
                 case 3:

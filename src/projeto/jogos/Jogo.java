@@ -36,6 +36,5 @@ public abstract class Jogo {
 				"========================\n";
 	}
 	
-	public abstract String exibirInfo();
 
 }
