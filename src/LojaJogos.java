@@ -41,16 +41,16 @@ public class LojaJogos {
             }
         }
     }
-    
-    public Jogo obterJogo(int id) {
-        if (jogosDisponiveis[id] != null) {
-            Jogo jogo = jogosDisponiveis[id];
-            jogosDisponiveis[id] = null;
-            return jogo;
-        }
-        return null;
+
+    public void compraJogos(Jogo[] jogosUsuario,int id){
+        jogosUsuario[id] = jogosDisponiveis[id];
+        jogosDisponiveis[id] = null;
     }
-    
+
+    public void removerJogo(Jogo[] jogosUsuario,int id){
+        jogosUsuario[id] = null;
+    }
+
     public void interfaceGraficaLojaJogos(Scanner sc,Pessoa usuario){
 
         adicionaJogosBibliotecas();
@@ -88,14 +88,12 @@ public class LojaJogos {
                         switch (subOpcao) {
                             case 1:
                                 System.out.println("Selecione a id do jogo: ");
-                                int idCompra = sc.nextInt();
-                                Jogo jogo = obterJogo(idCompra);
-                                usuario.comprarJogo(jogo);
+                                compraJogos(usuario.getJogosUsuario(),sc.nextInt());
                                 break;
-                                
+
                             case 2:
                                 System.out.println("Selecione a id do jogo: ");
-                                usuario.removerJogo(sc.nextInt());
+                                removerJogo(usuario.getJogosUsuario(),sc.nextInt());
                                 break;
                             case 3:
                                 System.out.println("Voltando...");

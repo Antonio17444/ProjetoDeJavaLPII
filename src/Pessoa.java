@@ -26,19 +26,8 @@ public class Pessoa {
 			}
 		}
 
-	}
-	
-	public void comprarJogo(Jogo jogo) {
-	    if (jogo != null) {
-	        jogosUsuario[jogo.getId()] = jogo;
-	    }
-	}
-	
-	public void removerJogo(int id) {
-	    jogosUsuario[id] = null;
-	}
+	};
 
-	
 	public void preencherDados(Scanner sc){
 
 		System.out.println("Preencha os Dados do usuario");
@@ -47,5 +36,4 @@ public class Pessoa {
 		nomeUsuario = sc.nextLine();
 
 	}
-	
 }
